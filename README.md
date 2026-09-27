@@ -1,54 +1,41 @@
 # RAG Evaluation Lab
 
-A Streamlit-based AI Engineer portfolio project that demonstrates both RAG and evaluation.
+A production-style RAG evaluation project that lets users upload documents, ask grounded questions, inspect retrieved context, and measure answer quality.
 
-## Features
+## Live Demo
 
-- Upload PDF or TXT
-- Chunk document text
-- Build retrieval index
-- Ask grounded questions
-- Inspect retrieved chunks
-- Measure retrieval scores
-- Measure latency
+[Open the deployed app](https://rag-evaluation-lab-samba.streamlit.app/)
+
+## Demo
+
+![RAG Evaluation Lab](assets/demo.jpeg)
+
+## What this project does
+
+This application allows users to:
+
+- Upload PDF or TXT documents
+- Build a retrieval index
+- Ask questions from uploaded documents
+- Inspect top retrieved chunks
+- Generate grounded answers using Groq
+- Measure response latency
 - Measure lexical grounding
-- Optional LLM groundedness judge
+- Evaluate answer groundedness using an LLM judge
 
-## Local setup
+## Example Workflow
 
-```bash
-python -m venv .venv
-.venv\Scripts\activate
-pip install -r requirements.txt
-copy .env.example .env
-streamlit run app.py
-```
-
-## Deploy on Streamlit Community Cloud
-
-1. Push this folder to GitHub.
-2. Create a Streamlit app.
-3. Main file: `app.py`
-4. Add Secrets:
-
-```toml
-GROQ_API_KEY="your_key_here"
-MODEL_NAME="llama-3.3-70b-versatile"
-```
-
-5. Deploy.
-
-## What to explain in interviews
-
-- Why retrieval must be evaluated separately from generation
-- What top-k retrieval means
-- How chunk size and overlap affect recall
-- Why answer groundedness matters
-- Why latency is an engineering metric
-- How this can later be upgraded with:
-  - dense embeddings
-  - Qdrant
-  - BM25
-  - reranking
-  - RAGAS
-  - LangSmith
+```text
+Upload PDF/TXT
+      ↓
+Chunk document
+      ↓
+Build retrieval index
+      ↓
+Ask question
+      ↓
+Retrieve top-k chunks
+      ↓
+Generate grounded answer
+      ↓
+Evaluate answer quality
